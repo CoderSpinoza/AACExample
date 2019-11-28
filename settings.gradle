@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':entities', ':domain', ':data'
 rootProject.name='RiiidProject'
