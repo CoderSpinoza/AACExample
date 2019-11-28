@@ -1,5 +1,10 @@
 /**
  * @author kevin.kang. Created on 2019-11-28..
  */
-class Comment {
-}
+data class Comment(
+    val postId: Int,
+    val id: Int,
+    val name: String,
+    val email: String,
+    val body: String
+)
