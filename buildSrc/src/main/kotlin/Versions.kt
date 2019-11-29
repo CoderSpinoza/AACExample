@@ -7,6 +7,7 @@ object Versions {
     const val retrofit = "2.6.2"
     const val okhttp = "4.2.2"
     const val junit = "5.1.1"
+    const val koin = "2.0.1"
 
     const val minSdkVersion = 19
     const val compileSdkVersion = 29

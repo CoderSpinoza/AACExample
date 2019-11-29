@@ -1,9 +1,9 @@
 package api
 
 import com.kanghara.riiidproject.data.api.PostApi
-import com.kanghara.riiidproject.data.entities.Comment
-import com.kanghara.riiidproject.data.entities.PatchPost
-import com.kanghara.riiidproject.data.entities.Post
+import com.kanghara.riiidproject.data.entities.CommentData
+import com.kanghara.riiidproject.data.entities.PatchPostData
+import com.kanghara.riiidproject.data.entities.PostData
 import io.reactivex.observers.TestObserver
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -20,14 +20,14 @@ class PostApiTest {
 
     @Test
     fun getPosts() {
-        val observer = TestObserver<List<Post>>()
+        val observer = TestObserver<List<PostData>>()
         api.getPosts().subscribe(observer)
         observer.assertValue { it.isNotEmpty() }
     }
 
     @Test
     fun getPost() {
-        val observer = TestObserver<Post>()
+        val observer = TestObserver<PostData>()
         api.getPost(1).subscribe(observer)
         observer.assertValue {
             it.userId == 1 && it.id == 1 && it.title.isNotEmpty() && it.body.isNotEmpty()
@@ -36,7 +36,7 @@ class PostApiTest {
 
     @Test
     fun getComments() {
-        val observer = TestObserver<List<Comment>>()
+        val observer = TestObserver<List<CommentData>>()
         api.getComments(1).subscribe(observer)
         observer.assertValue { it.isNotEmpty() }
     }
@@ -50,8 +50,8 @@ class PostApiTest {
 
     @Test
     fun patchPost() {
-        val observer = TestObserver<PatchPost>()
-        api.patchPost(1, PatchPost(title = "hello")).subscribe(observer)
+        val observer = TestObserver<PatchPostData>()
+        api.patchPost(1, PatchPostData(title = "hello")).subscribe(observer)
         observer.assertNoErrors()
     }
 }

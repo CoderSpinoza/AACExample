@@ -9,8 +9,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 @Parcelize
-data class Post(val userId: Int, val id: Int, val title: String, val body: String) : Parcelable
-
-@Serializable
-@Parcelize
-data class PatchPost(val title: String? = null, val body: String? = null) : Parcelable
+class CommentData(
+    val postId: Int,
+    val id: Int,
+    val name: String,
+    val email: String,
+    val body: String
+) : Parcelable

@@ -5,5 +5,5 @@ dependencies {
     implementation(Deps.kotlin)
     api(Deps.rxJava)
     api(Deps.rxKotlin)
-    implementation(project(":entities"))
+    api(project(":entities"))
 }

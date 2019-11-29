@@ -28,7 +28,7 @@ dependencies {
     implementation(project(":entities"))
     implementation(project(":domain"))
     implementation(Deps.okhttp)
-    implementation(Deps.retrofit)
+    api(Deps.retrofit)
     implementation(Deps.retrofitRx)
     implementation(Deps.retrofitSerial)
     implementation(Deps.kotlinxSerial)
