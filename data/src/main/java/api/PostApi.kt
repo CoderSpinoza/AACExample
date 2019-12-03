@@ -4,7 +4,6 @@ import com.kanghara.riiidproject.data.entities.CommentData
 import com.kanghara.riiidproject.data.entities.PatchPostData
 import com.kanghara.riiidproject.data.entities.PostData
 import io.reactivex.Completable
-import io.reactivex.Observable
 import io.reactivex.Single
 import retrofit2.http.*
 

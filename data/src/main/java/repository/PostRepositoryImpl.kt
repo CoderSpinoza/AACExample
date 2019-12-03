@@ -1,6 +1,5 @@
 package com.kanghara.riiidproject.data.repository
 
-import android.util.Log
 import androidx.room.EmptyResultSetException
 import cache.PostDatabase
 import com.kanghara.riiidproject.data.api.PostApi

@@ -1,6 +1,7 @@
 package api
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import kotlinx.serialization.UnstableDefault
 import kotlinx.serialization.json.Json
 import okhttp3.OkHttpClient
 import okhttp3.MediaType.Companion.toMediaType
@@ -20,6 +21,7 @@ object ApiClient {
             .build()
     }
 
+    @UnstableDefault
     val retrofit: Retrofit = Retrofit.Builder()
         .baseUrl("https://jsonplaceholder.typicode.com")
         .client(okhttp)
