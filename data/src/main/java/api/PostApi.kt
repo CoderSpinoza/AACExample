@@ -4,6 +4,7 @@ import com.kanghara.riiidproject.data.entities.CommentData
 import com.kanghara.riiidproject.data.entities.PatchPostData
 import com.kanghara.riiidproject.data.entities.PostData
 import io.reactivex.Completable
+import io.reactivex.Observable
 import io.reactivex.Single
 import retrofit2.http.*
 
@@ -12,7 +13,7 @@ import retrofit2.http.*
  */
 interface PostApi {
     @GET("/posts")
-    fun getPosts(@Query("_start") page: Int = 0, @Query("_limit") limit: Int = 10): Single<List<PostData>>
+    fun getPosts(@Query("_start") offset: Int = 0, @Query("_limit") limit: Int = 10): Single<List<PostData>>
 
     @GET("/posts/{postId}")
     fun getPost(@Path("postId") postId: Int): Single<PostData>

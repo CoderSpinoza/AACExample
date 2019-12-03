@@ -9,7 +9,7 @@ object Versions {
     const val junit = "5.1.1"
     const val koin = "2.0.1"
     const val nav = "2.1.0"
-
+    const val room = "2.2.2"
     const val minSdkVersion = 21
     const val compileSdkVersion = 29
     const val buildToolsVersion = "29.0.2"
@@ -32,6 +32,11 @@ object Deps {
         "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.4.0"
     const val mockwebserver = "com.squareup.okhttp3:mockwebserver:${Versions.okhttp}"
     const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
+
+    const val room = "androidx.room:room-runtime:${Versions.room}"
+    const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
+    const val roomRxjava = "androidx.room:room-rxjava2:${Versions.room}"
+    const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
 
     const val jupiterApi = "org.junit.jupiter:junit-jupiter-api:${Versions.junit}"
     const val jupiterParams = "org.junit.jupiter:junit-jupiter-params:${Versions.junit}"

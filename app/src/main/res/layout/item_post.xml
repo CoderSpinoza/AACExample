@@ -6,7 +6,7 @@
 
         <variable
             name="post"
-            type="com.kanghara.riiidproject.entities.Post" />
+            type="com.kanghara.riiidproject.domain.entities.Post" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"

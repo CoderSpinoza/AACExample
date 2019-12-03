@@ -71,7 +71,6 @@ class DetailFragment : Fragment() {
         commentsAdapter = CommentsAdapter(listOf())
         commentsRecyclerView.apply {
             setHasFixedSize(true)
-//            addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
             layoutManager = LinearLayoutManager(context)
             adapter = commentsAdapter
         }

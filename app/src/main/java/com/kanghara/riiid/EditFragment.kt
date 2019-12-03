@@ -3,14 +3,15 @@ package com.kanghara.riiid
 
 import android.os.Bundle
 import android.transition.TransitionInflater
-import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
 import com.kanghara.riiid.databinding.FragmentEditBinding
-import com.kanghara.riiidproject.entities.PatchPost
+import com.kanghara.riiidproject.domain.entities.PatchPost
 import kotlinx.android.synthetic.main.fragment_edit.*
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
@@ -27,6 +28,11 @@ class EditFragment : Fragment() {
         detailViewModel.edited.observe(this, Observer {
             if (it) {
                 detailViewModel.resetEdited()
+                Snackbar.make(
+                    view!!,
+                    "Successfully updated a post",
+                    BaseTransientBottomBar.LENGTH_SHORT
+                ).show()
                 findNavController().navigateUp()
             }
         })
@@ -42,7 +48,10 @@ class EditFragment : Fragment() {
         sharedElementReturnTransition =
             TransitionInflater.from(context).inflateTransition(android.R.transition.move)
         binding = FragmentEditBinding.inflate(LayoutInflater.from(context), container, false)
-        binding.post = PatchPost(args.postTitle, args.postBody)
+        binding.post = PatchPost(
+            args.postTitle,
+            args.postBody
+        )
         setHasOptionsMenu(true)
 
         return binding.root

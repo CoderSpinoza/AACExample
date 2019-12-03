@@ -4,9 +4,9 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.kanghara.riiidproject.domain.PostRepository
-import com.kanghara.riiidproject.entities.Comment
-import com.kanghara.riiidproject.entities.PatchPost
-import com.kanghara.riiidproject.entities.Post
+import com.kanghara.riiidproject.domain.entities.Comment
+import com.kanghara.riiidproject.domain.entities.PatchPost
+import com.kanghara.riiidproject.domain.entities.Post
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
@@ -17,7 +17,7 @@ import io.reactivex.schedulers.Schedulers
  * @author kevin.kang. Created on 2019-12-03..
  */
 class DetailViewModel(val repo: PostRepository) : ViewModel() {
-    val disposables = CompositeDisposable()
+    private val disposables = CompositeDisposable()
     val post = MutableLiveData<Post?>()
     val comments = MutableLiveData<List<Comment>>()
     val edited = MutableLiveData<Boolean>(false)
@@ -37,8 +37,11 @@ class DetailViewModel(val repo: PostRepository) : ViewModel() {
         repo.deletePost(postId).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
+                Log.e("DetailViewModel", "value = null")
                 post.value = null
-            }, {}).addTo(disposables)
+            }, {
+                Log.e("DetailViewModel", it.toString())
+            }).addTo(disposables)
     }
 
     fun editPost(postId: Int, patchPost: PatchPost) {

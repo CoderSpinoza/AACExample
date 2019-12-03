@@ -1,7 +1,9 @@
 package com.kanghara.riiid
 
 import android.app.Application
+import androidx.room.Room
 import api.ApiClient
+import cache.PostDatabase
 import com.kanghara.riiidproject.data.api.PostApi
 import com.kanghara.riiidproject.data.repository.PostRepositoryImpl
 import com.kanghara.riiidproject.domain.PostRepository
@@ -17,10 +19,9 @@ import org.koin.dsl.module
 class RiiidApplication : Application() {
 
     val appModule = module {
-        single {
-            ApiClient.retrofit.create(PostApi::class.java)
-        }
-        single<PostRepository> { PostRepositoryImpl(get()) }
+        single { ApiClient.retrofit.create(PostApi::class.java) }
+        single { Room.databaseBuilder(get(), PostDatabase::class.java, "posts").build() }
+        single<PostRepository> { PostRepositoryImpl(get(), get()) }
         viewModel { PostsViewModel(get()) }
         viewModel { DetailViewModel(get()) }
     }

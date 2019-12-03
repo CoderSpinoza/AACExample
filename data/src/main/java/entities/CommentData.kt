@@ -1,6 +1,8 @@
 package com.kanghara.riiidproject.data.entities
 
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 import kotlinx.serialization.Serializable
 
@@ -9,9 +11,10 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 @Parcelize
+@Entity(tableName = "comments")
 class CommentData(
     val postId: Int,
-    val id: Int,
+    @PrimaryKey val id: Int,
     val name: String,
     val email: String,
     val body: String

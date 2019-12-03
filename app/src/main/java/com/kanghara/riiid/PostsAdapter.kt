@@ -8,7 +8,7 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.kanghara.riiid.databinding.ItemPostBinding
-import com.kanghara.riiidproject.entities.Post
+import com.kanghara.riiidproject.domain.entities.Post
 
 /**
  * @author kevin.kang. Created on 2019-11-29..

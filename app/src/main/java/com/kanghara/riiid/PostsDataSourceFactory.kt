@@ -3,7 +3,7 @@ package com.kanghara.riiid
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
 import com.kanghara.riiidproject.domain.PostRepository
-import com.kanghara.riiidproject.entities.Post
+import com.kanghara.riiidproject.domain.entities.Post
 import io.reactivex.disposables.CompositeDisposable
 
 /**

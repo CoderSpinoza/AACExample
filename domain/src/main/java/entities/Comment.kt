@@ -1,4 +1,4 @@
-package com.kanghara.riiidproject.entities
+package com.kanghara.riiidproject.domain.entities
 
 /**
  * @author kevin.kang. Created on 2019-11-28..

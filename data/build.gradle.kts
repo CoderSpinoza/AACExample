@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     kotlin("android")
+    kotlin("kapt")
     kotlin("android.extensions")
     id("kotlinx-serialization")
 }
@@ -25,7 +26,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":entities"))
     implementation(project(":domain"))
     implementation(Deps.okhttp)
     api(Deps.retrofit)
@@ -34,6 +34,12 @@ dependencies {
     implementation(Deps.kotlinxSerial)
     implementation(Deps.loggingInterceptor)
     testImplementation(Deps.mockwebserver)
+
+    api(Deps.room)
+    api(Deps.roomRxjava)
+    api(Deps.roomKtx)
+
+    "kapt"(Deps.roomCompiler)
 
     testImplementation(Deps.jupiterApi)
     testImplementation(Deps.jupiterEngine)

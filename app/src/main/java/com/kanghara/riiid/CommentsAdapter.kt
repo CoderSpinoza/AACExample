@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.kanghara.riiid.databinding.ItemCommentBinding
-import com.kanghara.riiidproject.entities.Comment
+import com.kanghara.riiidproject.domain.entities.Comment
 
 /**
  * @author kevin.kang. Created on 2019-12-03..
