@@ -10,5 +10,8 @@ data class Comment(
     val email: String,
     val body: String
 ) {
+
+    fun nameAndEmail(): String = "$name (${email})"
+
     companion object
 }

@@ -2,15 +2,16 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("android.extensions")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
-    compileSdkVersion(29)
-    buildToolsVersion("29.0.2")
+    compileSdkVersion(Versions.compileSdkVersion)
+    buildToolsVersion(Versions.buildToolsVersion)
     defaultConfig {
         applicationId = "com.kanghara.riiid"
-        minSdkVersion(19)
-        targetSdkVersion(29)
+        minSdkVersion(Versions.minSdkVersion)
+        targetSdkVersion(Versions.targetSdkVersion)
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -19,8 +20,8 @@ android {
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
             )
         }
     }
@@ -42,11 +43,23 @@ dependencies {
 
     implementation("org.koin:koin-android:${Versions.koin}")
     implementation("org.koin:koin-android-viewmodel:${Versions.koin}")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha03")
-    implementation("android.arch.paging:runtime:1.0.0-alpha5")
-    implementation("android.arch.lifecycle:extensions:1.1.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-rc02")
+    implementation("androidx.paging:paging-runtime:2.1.0")
+    implementation("androidx.lifecycle:lifecycle-extensions:2.1.0")
+    implementation("com.google.android.material:material:1.2.0-alpha02")
 
+    implementation(Deps.navFragment)
+    implementation(Deps.navUi)
+    implementation(Deps.rxAndroid)
+
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
     testImplementation("junit:junit:4.12")
     androidTestImplementation("androidx.test.ext:junit:1.1.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
+}
+
+tasks.withType < org.jetbrains.kotlin.gradle.tasks.KotlinCompile > {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }

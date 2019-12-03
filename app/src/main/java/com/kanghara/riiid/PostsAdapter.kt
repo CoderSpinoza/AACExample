@@ -1,7 +1,9 @@
 package com.kanghara.riiid
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.MutableLiveData
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -13,6 +15,8 @@ import com.kanghara.riiidproject.entities.Post
  */
 class PostsAdapter :
     PagedListAdapter<Post, PostHolder>(PostsDiffCallback) {
+    val observable = MutableLiveData<Pair<ItemPostBinding, Post>>()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostHolder {
         val inflater = LayoutInflater.from(parent.context)
         return PostHolder(ItemPostBinding.inflate(inflater, parent, false))
@@ -20,7 +24,15 @@ class PostsAdapter :
     }
 
     override fun onBindViewHolder(holder: PostHolder, position: Int) {
-        getItem(position)?.let { holder.bind(it) }
+        getItem(position)?.let { post ->
+            holder.bind(post)
+            holder.binding.titleView.transitionName = "postTitle${post.id}"
+            holder.binding.bodyView.transitionName = "postBody${post.id}"
+            holder.binding.root.setOnClickListener { view: View ->
+                observable.postValue(Pair(holder.binding, post))
+            }
+        }
+
     }
 
     companion object {

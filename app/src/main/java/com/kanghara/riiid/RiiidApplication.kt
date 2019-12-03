@@ -21,9 +21,8 @@ class RiiidApplication : Application() {
             ApiClient.retrofit.create(PostApi::class.java)
         }
         single<PostRepository> { PostRepositoryImpl(get()) }
-        viewModel {
-            PostsViewModel(get())
-        }
+        viewModel { PostsViewModel(get()) }
+        viewModel { DetailViewModel(get()) }
     }
 
     override fun onCreate() {

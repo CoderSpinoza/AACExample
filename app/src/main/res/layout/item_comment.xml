@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <variable
-            name="post"
-            type="com.kanghara.riiidproject.entities.Post" />
+            name="comment"
+            type="com.kanghara.riiidproject.entities.Comment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -15,22 +14,17 @@
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/titleView"
-            android:layout_width="wrap_content"
+            android:id="@+id/nameAndEmailView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{post.title}"
+            android:text="@{comment.nameAndEmail()}"
             android:textStyle="bold"
-            android:transitionName="postTitle"
-            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/bodyView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{post.body}"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/titleView" />
-
+            android:text="@{comment.body}"
+            app:layout_constraintTop_toBottomOf="@+id/nameAndEmailView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
