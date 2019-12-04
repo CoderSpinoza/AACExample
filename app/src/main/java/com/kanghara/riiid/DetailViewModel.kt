@@ -37,11 +37,8 @@ class DetailViewModel(val repo: PostRepository) : ViewModel() {
         repo.deletePost(postId).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                Log.e("DetailViewModel", "value = null")
                 post.value = null
-            }, {
-                Log.e("DetailViewModel", it.toString())
-            }).addTo(disposables)
+            }, {}).addTo(disposables)
     }
 
     fun editPost(postId: Int, patchPost: PatchPost) {
