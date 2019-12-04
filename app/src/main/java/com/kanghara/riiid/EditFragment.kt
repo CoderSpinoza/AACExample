@@ -78,11 +78,12 @@ class EditFragment : Fragment() {
                         body = binding.postBodyInput.text.toString()
                     )
                 )
+                return true
             }
             else -> {
             }
         }
-        return true
+        return super.onOptionsItemSelected(item)
     }
 
 

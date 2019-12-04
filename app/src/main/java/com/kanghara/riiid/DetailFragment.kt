@@ -92,12 +92,16 @@ class DetailFragment : Fragment() {
                     .addSharedElement(binding.postBodyView, binding.postBodyView.transitionName)
                     .build()
                 findNavController().navigate(action, extras)
+                return true
             }
-            R.id.menu_delete -> showDeleteDialog()
+            R.id.menu_delete -> {
+                showDeleteDialog()
+                return true
+            }
             else -> {
             }
         }
-        return true
+        return super.onOptionsItemSelected(item)
     }
 
     private fun showDeleteDialog() {

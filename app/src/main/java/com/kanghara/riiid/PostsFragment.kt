@@ -44,7 +44,6 @@ class PostsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-//        sharedElementEnterTransition =
         return inflater.inflate(R.layout.fragment_posts, container, false)
     }
 
